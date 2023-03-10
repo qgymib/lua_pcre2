@@ -436,7 +436,7 @@ size_t lpcre2_match_data_ovector(lua_State* L, lpcre2_match_data_t* match_data,
     lpcre2_match_data_impl_t* real_match_data = container_of(match_data, lpcre2_match_data_impl_t, base);
     PCRE2_SIZE* ovector = pcre2_get_ovector_pointer(real_match_data->data);
 
-    if (idx > match_data->rc)
+    if (idx >= INT_MAX || (int)idx > match_data->rc)
     {
         luaL_error(L, "out of bound");
         return (size_t) -1;
