@@ -31,76 +31,76 @@ typedef struct lpcre2_match_data
 
 typedef enum lpcre2_option
 {
-	/**
-	 * @brief Allow empty classes
-	 */
-	LPCRE2_ALLOW_EMPTY_CLASS    		= 0x00000001u,
+    /**
+     * @brief Allow empty classes
+     */
+    LPCRE2_ALLOW_EMPTY_CLASS            = 0x00000001u,
 
-	/**
-	 * @brief An empty string is not a valid match.
-	 */
-	LPCRE2_NOTEMPTY             		= 0x00000004u,
+    /**
+     * @brief An empty string is not a valid match.
+     */
+    LPCRE2_NOTEMPTY                     = 0x00000004u,
 
-	/**
-	 * @brief An empty string at the start of the subject is not a valid match.
-	 */
-	LPCRE2_NOTEMPTY_ATSTART     		= 0x00000008u,
+    /**
+     * @brief An empty string at the start of the subject is not a valid match.
+     */
+    LPCRE2_NOTEMPTY_ATSTART             = 0x00000008u,
 
-	/**
-	 * @brief `.` matches anything including NL.
-	 */
-	LPCRE2_DOTALL               		= 0x00000020u,
+    /**
+     * @brief `.` matches anything including NL.
+     */
+    LPCRE2_DOTALL                       = 0x00000020u,
 
-	/**
-	 * @brief Ignore white space and # comments.
-	 */
-	LPCRE2_EXTENDED             		= 0x00000080u,
+    /**
+     * @brief Ignore white space and # comments.
+     */
+    LPCRE2_EXTENDED                     = 0x00000080u,
 
-	/**
-	 * @brief `^` and `$` match newlines within data.
-	 */
-	LPCRE2_MULTILINE            		= 0x00000400u,
+    /**
+     * @brief `^` and `$` match newlines within data.
+     */
+    LPCRE2_MULTILINE                    = 0x00000400u,
 
-	/**
-	 * @brief Pattern can match only at end of subject.
-	 */
-	LPCRE2_ENDANCHORED          		= 0x20000000u,
+    /**
+     * @brief Pattern can match only at end of subject.
+     */
+    LPCRE2_ENDANCHORED                  = 0x20000000u,
 
-	/**
-	 * @brief Do not check the subject for UTF validity (only relevant if
-	 *   `PCRE2_UTF` was set at compile time).
-	 */
-	LPCRE2_NO_UTF_CHECK         		= 0x40000000u,
+    /**
+     * @brief Do not check the subject for UTF validity (only relevant if
+     *   `PCRE2_UTF` was set at compile time).
+     */
+    LPCRE2_NO_UTF_CHECK                 = 0x40000000u,
 
-	/**
-	 * @brief Match only at the first position.
-	 */
-	LPCRE2_ANCHORED             		= 0x80000000u,
+    /**
+     * @brief Match only at the first position.
+     */
+    LPCRE2_ANCHORED                     = 0x80000000u,
 
-	/**
-	 * @brief Replace all occurrences in the subject.
-	 */
-	LPCRE2_SUBSTITUTE_GLOBAL  			= 0x00000100u,
+    /**
+     * @brief Replace all occurrences in the subject.
+     */
+    LPCRE2_SUBSTITUTE_GLOBAL            = 0x00000100u,
 
-	/**
-	 * @brief Do extended replacement processing.
-	 */
-	LPCRE2_SUBSTITUTE_EXTENDED			= 0x00000200u,
+    /**
+     * @brief Do extended replacement processing.
+     */
+    LPCRE2_SUBSTITUTE_EXTENDED          = 0x00000200u,
 
-	/**
-	 * @brief Simple unset insert = empty string.
-	 */
-	LPCRE2_SUBSTITUTE_UNSET_EMPTY		= 0x00000400u,
+    /**
+     * @brief Simple unset insert = empty string.
+     */
+    LPCRE2_SUBSTITUTE_UNSET_EMPTY       = 0x00000400u,
 
-	/**
-	 * @brief Treat unknown group as unset.
-	 */
-	LPCRE2_SUBSTITUTE_UNKNOWN_UNSET		= 0x00000800u,
+    /**
+     * @brief Treat unknown group as unset.
+     */
+    LPCRE2_SUBSTITUTE_UNKNOWN_UNSET     = 0x00000800u,
 
-	/**
-	 * @brief Return only replacement string(s).
-	 */
-	LPCRE2_SUBSTITUTE_REPLACEMENT_ONLY	= 0x00020000u,
+    /**
+     * @brief Return only replacement string(s).
+     */
+    LPCRE2_SUBSTITUTE_REPLACEMENT_ONLY  = 0x00020000u,
 } lpcre2_option_t;
 
 /**
@@ -216,10 +216,10 @@ lpcre2_match_data_t* lpcre2_match(struct lua_State* L, lpcre2_code_t* code,
 
 /**
  * @brief Get offset of captured group.
- * @param[in] L				Lua Stack.
- * @param[in] match_data	Match result.
- * @param[in] idx			Group index. 0 is the whole match, 1 is the first match.
- * @param[out] len			The length of captured group.
+ * @param[in] L             Lua Stack.
+ * @param[in] match_data    Match result.
+ * @param[in] idx           Group index. 0 is the whole match, 1 is the first match.
+ * @param[out] len          The length of captured group.
  * @return The start position of captured group.
  */
 size_t lpcre2_match_data_ovector(struct lua_State* L,
